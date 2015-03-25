@@ -1,0 +1,277 @@
+@charset "utf-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #faf8ef;
+  color: #776e65;
+  font-family: "Clear Sans", "Helvetica Neue",      Arial, sans-serif;
+  font-size: 18px; 
+}
+
+#main {
+  width: 500px;
+  margin: 0 auto; 
+}
+
+/*头部部分*/
+#score:after {
+    content: " ";
+    display: block;
+    clear: both; 
+}
+
+#score h2 {
+    font-size: 80px;
+    font-weight: bold;
+    margin: 0;
+    display: block;
+    float: left;
+}
+#score p{
+    background: #bbada0;
+    text-align: right;
+    float: right;
+    border-radius: 10px;
+    padding: 15px 25px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    margin-top: 15px;
+}
+
+/*主体部分*/
+/*整个容器*/
+.game-container {
+    margin-top: 10px;
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+    background: #bbada0;
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+    box-sizing: border-box;
+}
+/*包含每个小格子的容器*/
+.grid-container {
+    position: absolute;
+    z-index: 1; 
+}
+/*每一行*/
+.grid-row {
+    margin-bottom: 15px; 
+}
+
+.grid-row:after {
+    content: " ";
+    display: block;
+    clear: both; 
+}
+/*每一个小格子*/
+.grid-cell {
+    width: 106.25px;
+    height: 106.25px;
+    margin-right: 15px;
+    float: left;
+    border-radius: 10px;
+    background: rgba(238, 228, 218, 0.35); 
+}
+
+/*小格子的具体内容*/
+.tile{
+    border-radius: 10px;
+    width: 107px;
+    height: 107px;
+    line-height: 110.25px;
+}
+.tile .tile-inner {
+    border-radius: 10px;
+    background: #eee4da;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    font-size: 55px; 
+}
+
+.tile.tile_2 .tile-inner{
+    background: #eee4da;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); 
+}
+.tile.tile_4 .tile-inner {
+    background: #ede0c8;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); 
+}
+.tile.tile_8 .tile-inner {
+    color: #f9f6f2;
+    background: #f2b179; 
+}
+.tile.tile_16 .tile-inner {
+    color: #f9f6f2;
+    background: #f59563; 
+}
+.tile.tile_32 .tile-inner {
+    color: #f9f6f2;
+    background: #f67c5f; 
+}
+.tile.tile_64 .tile-inner {
+    color: #f9f6f2;
+    background: #f65e3b; 
+}
+.tile.tile_128 .tile-inner {
+    color: #f9f6f2;
+    background: #edcf72;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+    font-size: 45px; 
+}
+@media screen and (max-width: 480px) {
+    .tile.tile_128 .tile-inner {
+        font-size: 25px; 
+    } 
+}
+.tile.tile_256 .tile-inner {
+    color: #f9f6f2;
+    background: #edcc61;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+    font-size: 45px; 
+}
+@media screen and (max-width: 480px) {
+    .tile.tile_256 .tile-inner {
+        font-size: 25px; 
+    } 
+}
+.tile.tile_512 .tile-inner {
+    color: #f9f6f2;
+    background: #edc850;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+    font-size: 45px; 
+}
+@media screen and (max-width: 480px) {
+    .tile.tile_512 .tile-inner {
+        font-size: 25px; 
+    } 
+}
+.tile.tile_1024 .tile-inner {
+    color: #f9f6f2;
+    background: #edc53f;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+    font-size: 35px; 
+}
+@media screen and (max-width: 480px) {
+    .tile.tile_1024 .tile-inner {
+        font-size: 15px; 
+    } 
+}
+.tile.tile_2048 .tile-inner {
+        color: #f9f6f2;
+        background: #edc22e;
+        box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+        font-size: 35px; 
+}
+@media screen and (max-width: 480px) {
+    .tile.tile_2048 .tile-inner {
+        font-size: 15px; 
+    } 
+}
+
+/*响应移动端屏幕*/
+@media screen and (max-width: 480px) {
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: #faf8ef;
+        color: #776e65;
+        font-family: "Clear Sans", "Helvetica Neue",      Arial, sans-serif;
+        font-size: 12px; 
+    }
+    #main {
+      width: 280px;
+      margin-top: 50px; 
+    }
+    /*头部部分*/
+    #score:after {
+        content: " ";
+        display: block;
+        clear: both; 
+    }
+    
+    #score h2 {
+        font-size: 35px;
+        font-weight: bold;
+        margin: 0;
+        display: block;
+        float: left;
+    }
+    #score p{
+        background: #bbada0;
+        text-align: right;
+        float: right;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        margin-top: 5px;
+    }
+    /*主体部分*/
+    /*整个容器*/
+    .game-container {
+        margin-top: 20px;
+        position: relative;
+        padding: 10px;
+        cursor: pointer;
+        background: #bbada0;
+        border-radius: 5px;
+        width: 280px;
+        height: 280px;
+        box-sizing: border-box;
+    }
+    /*包含每个小格子的容器*/
+    .grid-container {
+        position: absolute;
+        z-index: 1; 
+    }
+    /*每一行*/
+    .grid-row {
+        margin-bottom: 10px; 
+    }
+    
+    .grid-row:after {
+        content: " ";
+        display: block;
+        clear: both; 
+    }
+    /*每一个小格子*/
+    .grid-cell {
+      width: 57.5px;
+      height: 57.5px;
+      margin-right: 10px;
+      float: left;
+      border-radius: 5px;
+      background: rgba(238, 228, 218, 0.35); 
+    }
+
+    /*小格子的具体内容*/
+    .tile{
+        border-radius: 5px;
+        width: 58px;
+        height: 58px;
+        line-height: 58.5px;
+    }
+    .tile .tile-inner {
+        border-radius: 5px;
+        background: #eee4da;
+        text-align: center;
+        font-weight: bold;
+        z-index: 10;
+        font-size: 25px; 
+    }
+}
+
